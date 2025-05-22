@@ -1,0 +1,16 @@
+{% load static %}
+<a href="{% url 'habit-list' %}" class="btn btn-secondary mb-3">🏠 Home</a>
+<div class="card mt-5 mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Add a New Habit</h5>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_name" class="form-label">Habit Name:</label>
+                <input type="text" id="id_name" name="name" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Habit</button>
+        </form>
+    </div>
+</div>
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
