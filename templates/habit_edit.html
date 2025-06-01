@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Habit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Card -->
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Edit Habit</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Habit Name</label>
+                                <input type="text" name="name" id="name" class="form-control" value="{{ habit.name }}"
+                                    required>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="/" class="btn btn-secondary">Cancel</a>
+                                <button type="submit" class="btn btn-success">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /Card -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

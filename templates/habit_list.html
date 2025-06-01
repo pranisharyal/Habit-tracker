@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Habit Tracker</title>
-    <link href="{% static 'css/bootstrap.min.css' %}"  rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 
 <body class="bg-light py-4">
@@ -17,6 +17,7 @@
             <div class="d-flex gap-2">
                 <a href="{% url 'add-habit' %}" class="btn btn-primary">Add Habit</a>
                 <a href="{% url 'view_streak' %}" class="btn btn-info text-white">View Streak</a>
+                <a href="{% url 'view_charts' %}" class="btn btn-warning text-white">View Charts</a>
             </div>
         </div>
 
@@ -33,6 +34,8 @@
                         <div class="d-flex gap-2">
                             <!-- Mark as Done Button -->
                             <a href="{% url 'mark_done' habit.id %}" class="btn btn-success">Mark as Done</a>
+                            <!-- Edit Button -->
+                            <a href="{% url 'edit_habit' habit.id %}" class="btn btn-warning text-white">Edit</a>
 
                             <!-- Delete Button -->
                             <a href="{% url 'habit-delete' habit.id %}" class="btn btn-danger">Delete</a>

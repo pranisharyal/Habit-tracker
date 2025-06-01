@@ -54,3 +54,24 @@ def view_streak(request):
             habit.save()
 
     return render(request, 'view_streak.html', {'habits': habits})
+
+
+def edit_habit(request, id):
+    habit = get_object_or_404(Habit, id=id)
+
+    if request.method == "POST":
+        habit.name = request.POST["name"]
+        habit.save()
+        return HttpResponseRedirect("/")
+    
+    return render(request, "habit_edit.html", {"habit": habit})
+
+def view_charts(request):
+    habits = Habit.objects.all()
+    names = [habit.name for habit in habits]
+    streaks = [habit.streak for habit in habits]
+
+    return render(request, "habit_charts.html", {
+        "names": names,
+        "streaks": streaks
+    })
