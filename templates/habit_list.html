@@ -33,14 +33,18 @@
 
                         <div class="d-flex gap-2">
                             <!-- Mark as Done Button -->
-                            <a href="{% url 'mark_done' habit.id %}" class="btn btn-success">Mark as Done</a>
+                            <a href="{% url 'mark_done' habit.id %}" class="btn btn-success btn-sm flex-grow-1">Mark as
+                                Done</a>
                             <!-- Mark Undone Button -->
-                            <a href="{% url 'mark_undone' habit.id %}" class="btn btn-secondary">Mark Undone</a>
+                            <a href="{% url 'mark_undone' habit.id %}" class="btn btn-secondary btn-sm flex-grow-1">Mark
+                                Undone</a>
                             <!-- Edit Button -->
-                            <a href="{% url 'edit_habit' habit.id %}" class="btn btn-warning text-white">Edit</a>
+                            <a href="{% url 'edit_habit' habit.id %}"
+                                class="btn btn-warning text-white btn-sm flex-grow-1">Edit</a>
 
                             <!-- Delete Button -->
-                            <a href="{% url 'habit-delete' habit.id %}" class="btn btn-danger">Delete</a>
+                            <a href="{% url 'habit-delete' habit.id %}"
+                                class="btn btn-danger btn-sm flex-grow-1">Delete</a>
                         </div>
                     </div>
                 </div>
