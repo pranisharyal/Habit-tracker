@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views import View
 
 from habit_app.models import Habit
 
@@ -75,3 +76,18 @@ def view_charts(request):
         "names": names,
         "streaks": streaks
     })
+
+class MarkUndoneView(View):
+    def get(self, request, id):
+        habit = get_object_or_404(Habit, id=id)
+        today = date.today()
+
+        # Only allow "undo" if last_marked_date is today
+        if habit.last_marked_date == today:
+            habit.last_marked_date = None  # or set to yesterday if you want
+            # Optionally reduce streak by 1 or reset
+            if habit.streak > 0:
+                habit.streak -= 1
+            habit.save()
+
+        return redirect("/")

@@ -9,5 +9,6 @@ urlpatterns = [
     path('view-streak/', views.view_streak, name='view_streak'),
     path('edit/<int:id>/', views.edit_habit, name='edit_habit'), 
     path('charts/', views.view_charts, name='view_charts'),
+    path('mark-undone/<int:id>/', views.MarkUndoneView.as_view(), name='mark_undone'),
 
 ]
